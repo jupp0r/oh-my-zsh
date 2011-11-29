@@ -28,10 +28,12 @@ if [ -d /usr/local/sbin ] ; then
 	PATH=/usr/local/sbin:$PATH
 fi
 
-alias aquamacs='/Applications/Aquamacs.app/Contents/MacOS/Aquamacs'
-
-export EDITOR='/Applications/Aquamacs.app/Contents/MacOS/Aquamacs'
-
+if [ -d /Applications/Aquamacs.app ] ; then
+    alias aquamacs='/Applications/Aquamacs.app/Contents/MacOS/Aquamacs'
+    export EDITOR='/Applications/Aquamacs.app/Contents/MacOS/Aquamacs'
+else
+    export EDITOR='emacs'
+fi
 export PATH MANPATH MONO_PATH PERL5LIB PKG_CONFIG_PATH
 
 setopt complete_in_word       # ~/Dev/pro -> <Tab> -> ~/Development/project
@@ -52,3 +54,8 @@ export LANG="C"
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+# support for closure contrib library
+if [ -f /usr/local/Cellar/clojure-contrib/1.2.0/clojure-contrib.jar ] ; then
+   export CLASSPATH=$CLASSPATH:/usr/local/Cellar/clojure-contrib/1.2.0/clojure-contrib.jar
+fi
