@@ -27,7 +27,14 @@ fi
 if [ -d /usr/local/sbin ] ; then
 	PATH=/usr/local/sbin:$PATH
 fi
+if [ -d /usr/local/lib/python ] ; then
+     	export PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
+fi
+if [ -d /usr/local/Cellar/ruby/1.9.3-p0/bin ] ; then
+     	export PATH=/usr/local/Cellar/ruby/1.9.3-p0/bin:$PATH
+fi
 
+# aquamacs
 if [ -d /Applications/Aquamacs.app ] ; then
     alias aquamacs='/Applications/Aquamacs.app/Contents/MacOS/Aquamacs'
     export EDITOR='/Applications/Aquamacs.app/Contents/MacOS/Aquamacs'
@@ -59,3 +66,8 @@ export LANG=en_US.UTF-8
 if [ -f /usr/local/Cellar/clojure-contrib/1.2.0/clojure-contrib.jar ] ; then
    export CLASSPATH=$CLASSPATH:/usr/local/Cellar/clojure-contrib/1.2.0/clojure-contrib.jar
 fi
+
+# tetris
+autoload -U tetris
+zle -N tetris
+bindkey '^T' tetris
