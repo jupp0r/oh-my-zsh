@@ -34,10 +34,10 @@ if [ -d /usr/local/Cellar/ruby/1.9.3-p0/bin ] ; then
      	export PATH=/usr/local/Cellar/ruby/1.9.3-p0/bin:$PATH
 fi
 
-# aquamacs
-if [ -d /Applications/Aquamacs.app ] ; then
-    alias aquamacs='/Applications/Aquamacs.app/Contents/MacOS/Aquamacs'
-    export EDITOR='/Applications/Aquamacs.app/Contents/MacOS/Aquamacs'
+# mac emacs
+if [ -d /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS ] ; then
+    alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
+    export EDITOR="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
 else
     export EDITOR='emacs'
 fi
